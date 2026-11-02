@@ -2,10 +2,8 @@
 build/
 *.o *.obj
 
-# log locali troppo verbosi
-out/*.log
-!out/dump67.log
-!out/mod.log
+# log e report catturati dalla console: specifici della singola esecuzione
+out/
 
 # python
 __pycache__/
