@@ -7,6 +7,13 @@ directly.
 FW tested: 9.40 (`0x09400008`), elfldr on `:9021`, payload runs `euid 0` (`uid 1`,
 authid `0x480000001000000e`).
 
+> **Requirement, stated plainly.** This is *not* a tool that runs on a stock console, and it does
+> **not** run from an unprivileged app / game sandbox (SWRR, Luac0re, webkit): from that context
+> `KERN_PROC_VMMAP` on another process and `mdbg_copyout` are denied, and the jail does not even
+> expose the target paths. It needs an **existing** payload loader that gives it `euid 0` (elfldr,
+> or any equivalent). It requires **no additional kernel exploit of its own** — the privilege is
+> inherited, not obtained.
+
 ## Why decrypted extraction matters
 
 On the console a module exists twice: the `.sprx`/`.self` on disk is encrypted and signed, and
