@@ -169,5 +169,5 @@ sprxdump/
   build.ps1             clang/ps5-payload-sdk build -> build/sprxdump.elf
   tools/deploy.py       FTP upload + elfldr URI run (raw stream when no args)
   probe/probe*.c        throwaway fact-finders used to pin down the ABI (not shipped)
-  out/                  captured console logs + .idx from the verification runs
+  examples/             .idx files produced by a real run (format reference)
 ```
