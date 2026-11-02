@@ -1,0 +1,27 @@
+== sprxdump - read-only PS5 process/module dumper ==
+payload pid=349 uid=1 euid=0 fw=0x09400008 authid=0x480000001000000e page=16384
+read-only: sysctl(KERN_PROC_VMMAP) + mdbg_copyout, no ptrace, no copyin, no target writes
+exec-only .text (prot=0x4) is accepted: a READ-only filter would drop all code
+process table: 86 entries
+argv: 1 entrie(s) -> 3 token(s)
+
+-- mod pid=67 (SceSpZeroConf) module=libSceSysmodule --
+kernel dynlib: base=0x833b74000 entry=0x833b74000 init=0x833b74010 fini=0x833b7ea50
+segments=4 span=0x833b74000-0x833ba0000 size=180224
+  seg[0] 0x833b74000-0x833b80000 prot=0x4 type=9 size=49152  (exec-only)
+  seg[1] 0x833b80000-0x833b88000 prot=0x1 type=9 size=32768
+  seg[2] 0x833b88000-0x833b8c000 prot=0x1 type=9 size=16384
+  seg[3] 0x833b8c000-0x833ba0000 prot=0x3 type=9 size=81920
+kernel sanity: entry_in_image=yes init_in_image=yes fini_in_image=yes
+base head cc_prefix=0x10 first_prologue=+0x10 prologues_in_0x100=2
+base bytes: cccccccccccccccccccccccccccccccc554889e5415741564155415453504c8d3dab0000004989d54889f34989fe4c3b3deb3f0100731e4c8d2592000000eb09
+elf: no ELF header at base (image is mapped decrypted without one; fingerprint/dynlib locators only)
+entry bytes @0x833b74000: cccccccccccccccccccccccccccccccc554889e5415741564155415453504c8d
+module dump: /data/sprxdump/libSceSysmodule.bin bytes=180224 segs=4/4 failed=0 errno=0 fnv1a64=0x9c5b4d164022352a in 19 ms
+index: /data/sprxdump/libSceSysmodule.idx
+file head: cccccccccccccccccccccccccccccccc554889e5415741564155415453504c8d3dab0000004989d54889f34989fe4c3b3deb3f0100731e4c8d2592000000eb09
+confirmation: file[0..64) == live[base..base+64): YES
+
+== done: 1 command(s), 0 failure(s), 0.08 s ==
+report: /data/sprxdump/report.txt
+output: /data/sprxdump/*.bin + *.idx (argv run)

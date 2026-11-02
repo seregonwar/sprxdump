@@ -1,0 +1,12 @@
+# build artifacts (gli ELF vanno nelle release)
+build/
+*.o *.obj
+
+# log locali troppo verbosi
+out/*.log
+!out/dump67.log
+!out/mod.log
+
+# python
+__pycache__/
+*.pyc

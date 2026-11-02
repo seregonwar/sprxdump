@@ -1,0 +1,25 @@
+sent uri file:/data/sprxdump.elf?args=dump%2C67
+== sprxdump - read-only PS5 process/module dumper ==
+payload pid=340 uid=1 euid=0 fw=0x09400008 authid=0x480000001000000e page=16384
+read-only: sysctl(KERN_PROC_VMMAP) + mdbg_copyout, no ptrace, no copyin, no target writes
+exec-only .text (prot=0x4) is accepted: a READ-only filter would drop all code
+process table: 86 entries
+argv: 1 entrie(s) -> 2 token(s)
+
+-- dump pid=67 (SceSpZeroConf) --
+ranges=74 planned=13418496 bytes (cap 1073741824)
+dump: /data/sprxdump/SceSpZeroConf_67.bin bytes_written=13418496 planned=13418496 ranges_ok=74 failed=0 errno=0 fnv1a64=0xf12cfc7ec24c5ed9 in 0.74 s (17.3 MiB/s)
+index: /data/sprxdump/SceSpZeroConf_67.idx
+va->file mapping for this snapshot:
+  va 0x056130000-0x056188000 -> file[0x0,0x58000)
+  va 0x056188000-0x0561a4000 -> file[0x58000,0x74000)
+  va 0x0561a4000-0x0561a8000 -> file[0x74000,0x78000)
+  va 0x0561a8000-0x0561ac000 -> file[0x78000,0x7c000)
+  va 0x0561ac000-0x0562b8000 -> file[0x7c000,0x188000)
+  va 0x200898000-0x20089c000 -> file[0x188000,0x18c000)
+  ... 68 more ranges, see /data/sprxdump/SceSpZeroConf_67.idx
+
+== done: 1 command(s), 0 failure(s), 0.80 s ==
+report: /data/sprxdump/report.txt
+output: /data/sprxdump/*.bin + *.idx (argv run)
+[deploy] 1201 bytes in 1.0s
